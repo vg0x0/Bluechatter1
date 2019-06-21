@@ -47,6 +47,12 @@ spec:
       containers:
       - name: web
         image: registry.ng.bluemix.net/<namespace>/bluechatter_app
+        env:
+          - name: appidSecrets
+            valueFrom:
+             secretKeyRef:
+               name: binding-appid-bluechatter
+               key: binding
         ports:
         - containerPort: 80
         - containerPort: 8080
